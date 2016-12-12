@@ -1,0 +1,716 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://DefaultNamespace" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://DefaultNamespace" xmlns:intf="http://DefaultNamespace" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://DefaultNamespace" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="profile">
+    <complexType>
+     <sequence>
+      <element name="emailId" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="profileResponse">
+    <complexType>
+     <sequence>
+      <element name="profileReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="register">
+    <complexType>
+     <sequence>
+      <element name="regEmail" type="xsd:string"/>
+      <element name="firstName" type="xsd:string"/>
+      <element name="lastName" type="xsd:string"/>
+      <element name="Dob" type="xsd:string"/>
+      <element name="contactNo" type="xsd:string"/>
+      <element name="location" type="xsd:string"/>
+      <element name="password" type="xsd:string"/>
+      <element name="date" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="registerResponse">
+    <complexType>
+     <sequence>
+      <element name="registerReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="login">
+    <complexType>
+     <sequence>
+      <element name="emailId" type="xsd:string"/>
+      <element name="password" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="loginResponse">
+    <complexType>
+     <sequence>
+      <element name="loginReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="fetchAdvertisement">
+    <complexType>
+     <sequence>
+      <element name="s_username" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="fetchAdvertisementResponse">
+    <complexType>
+     <sequence>
+      <element name="fetchAdvertisementReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="postAdvertisementBid">
+    <complexType>
+     <sequence>
+      <element name="seller_handle" type="xsd:string"/>
+      <element name="s_username" type="xsd:string"/>
+      <element name="prd_name" type="xsd:string"/>
+      <element name="prd_desc" type="xsd:string"/>
+      <element name="prd_quantity" type="xsd:string"/>
+      <element name="prd_price" type="xsd:string"/>
+      <element name="prd_image" type="xsd:string"/>
+      <element name="type" type="xsd:string"/>
+      <element name="bid_days" type="xsd:string"/>
+      <element name="date_of_sale" type="xsd:string"/>
+      <element name="available_till" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="postAdvertisementBidResponse">
+    <complexType>
+     <sequence>
+      <element name="postAdvertisementBidReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="ebayMainPage">
+    <complexType>
+     <sequence>
+      <element name="emailId" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="ebayMainPageResponse">
+    <complexType>
+     <sequence>
+      <element name="ebayMainPageReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="postAdvertisement">
+    <complexType>
+     <sequence>
+      <element name="seller_handle" type="xsd:string"/>
+      <element name="s_username" type="xsd:string"/>
+      <element name="prd_name" type="xsd:string"/>
+      <element name="prd_desc" type="xsd:string"/>
+      <element name="prd_quantity" type="xsd:string"/>
+      <element name="prd_price" type="xsd:string"/>
+      <element name="prd_image" type="xsd:string"/>
+      <element name="type" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="postAdvertisementResponse">
+    <complexType>
+     <sequence>
+      <element name="postAdvertisementReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="ebayCart">
+    <complexType>
+     <sequence>
+      <element name="emailId" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="ebayCartResponse">
+    <complexType>
+     <sequence>
+      <element name="ebayCartReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="myPurchases">
+    <complexType>
+     <sequence>
+      <element name="buyer_uname" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="myPurchasesResponse">
+    <complexType>
+     <sequence>
+      <element name="myPurchasesReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="mySoldItems">
+    <complexType>
+     <sequence>
+      <element name="s_username" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="mySoldItemsResponse">
+    <complexType>
+     <sequence>
+      <element name="mySoldItemsReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="eBayShowBidders">
+    <complexType>
+     <sequence>
+      <element name="type" type="xsd:string"/>
+      <element name="productId" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="eBayShowBiddersResponse">
+    <complexType>
+     <sequence>
+      <element name="eBayShowBiddersReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="ebayCartResponse">
+
+      <wsdl:part element="impl:ebayCartResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="mySoldItemsRequest">
+
+      <wsdl:part element="impl:mySoldItems" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="loginRequest">
+
+      <wsdl:part element="impl:login" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="profileRequest">
+
+      <wsdl:part element="impl:profile" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="postAdvertisementResponse">
+
+      <wsdl:part element="impl:postAdvertisementResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="eBayShowBiddersRequest">
+
+      <wsdl:part element="impl:eBayShowBidders" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="loginResponse">
+
+      <wsdl:part element="impl:loginResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="myPurchasesResponse">
+
+      <wsdl:part element="impl:myPurchasesResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="postAdvertisementBidRequest">
+
+      <wsdl:part element="impl:postAdvertisementBid" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="ebayMainPageResponse">
+
+      <wsdl:part element="impl:ebayMainPageResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="postAdvertisementBidResponse">
+
+      <wsdl:part element="impl:postAdvertisementBidResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="registerResponse">
+
+      <wsdl:part element="impl:registerResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="ebayCartRequest">
+
+      <wsdl:part element="impl:ebayCart" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="registerRequest">
+
+      <wsdl:part element="impl:register" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="fetchAdvertisementRequest">
+
+      <wsdl:part element="impl:fetchAdvertisement" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="mySoldItemsResponse">
+
+      <wsdl:part element="impl:mySoldItemsResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="profileResponse">
+
+      <wsdl:part element="impl:profileResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="eBayShowBiddersResponse">
+
+      <wsdl:part element="impl:eBayShowBiddersResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="ebayMainPageRequest">
+
+      <wsdl:part element="impl:ebayMainPage" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="postAdvertisementRequest">
+
+      <wsdl:part element="impl:postAdvertisement" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="fetchAdvertisementResponse">
+
+      <wsdl:part element="impl:fetchAdvertisementResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="myPurchasesRequest">
+
+      <wsdl:part element="impl:myPurchases" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="eBay">
+
+      <wsdl:operation name="profile">
+
+         <wsdl:input message="impl:profileRequest" name="profileRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:profileResponse" name="profileResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="register">
+
+         <wsdl:input message="impl:registerRequest" name="registerRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:registerResponse" name="registerResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="login">
+
+         <wsdl:input message="impl:loginRequest" name="loginRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:loginResponse" name="loginResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="fetchAdvertisement">
+
+         <wsdl:input message="impl:fetchAdvertisementRequest" name="fetchAdvertisementRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:fetchAdvertisementResponse" name="fetchAdvertisementResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="postAdvertisementBid">
+
+         <wsdl:input message="impl:postAdvertisementBidRequest" name="postAdvertisementBidRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:postAdvertisementBidResponse" name="postAdvertisementBidResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="ebayMainPage">
+
+         <wsdl:input message="impl:ebayMainPageRequest" name="ebayMainPageRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:ebayMainPageResponse" name="ebayMainPageResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="postAdvertisement">
+
+         <wsdl:input message="impl:postAdvertisementRequest" name="postAdvertisementRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:postAdvertisementResponse" name="postAdvertisementResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="ebayCart">
+
+         <wsdl:input message="impl:ebayCartRequest" name="ebayCartRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:ebayCartResponse" name="ebayCartResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="myPurchases">
+
+         <wsdl:input message="impl:myPurchasesRequest" name="myPurchasesRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:myPurchasesResponse" name="myPurchasesResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="mySoldItems">
+
+         <wsdl:input message="impl:mySoldItemsRequest" name="mySoldItemsRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:mySoldItemsResponse" name="mySoldItemsResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="eBayShowBidders">
+
+         <wsdl:input message="impl:eBayShowBiddersRequest" name="eBayShowBiddersRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:eBayShowBiddersResponse" name="eBayShowBiddersResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="eBaySoapBinding" type="impl:eBay">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="profile">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="profileRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="profileResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="register">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="registerRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="registerResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="login">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="loginRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="loginResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="fetchAdvertisement">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="fetchAdvertisementRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="fetchAdvertisementResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="postAdvertisementBid">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="postAdvertisementBidRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="postAdvertisementBidResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="ebayMainPage">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="ebayMainPageRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="ebayMainPageResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="postAdvertisement">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="postAdvertisementRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="postAdvertisementResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="ebayCart">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="ebayCartRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="ebayCartResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="myPurchases">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="myPurchasesRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="myPurchasesResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="mySoldItems">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="mySoldItemsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="mySoldItemsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="eBayShowBidders">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="eBayShowBiddersRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="eBayShowBiddersResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="eBayService">
+
+      <wsdl:port binding="impl:eBaySoapBinding" name="eBay">
+
+         <wsdlsoap:address location="http://localhost:8080/eBay-lab3-Server/services/eBay"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
